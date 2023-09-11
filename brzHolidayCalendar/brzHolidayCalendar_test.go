@@ -7,13 +7,13 @@ import (
 
 func TestIsHoliday(t *testing.T) {
 	//test a randon christmas date. Expect to return true
-	td, _ := stringToDate("25/12/2023")
+	td, _ := StringToDate("25/12/2023")
 	if IsHoliday(td) == false {
 		t.Errorf("2023 christmas not identified as a holiday")
 	}
 
 	//test a randon work date. Expect to return false
-	td, _ = stringToDate("11/09/2023")
+	td, _ = StringToDate("11/09/2023")
 	if IsHoliday(td) == true {
 		t.Errorf("%v wrongly identified as a holiday", td)
 	}
@@ -22,7 +22,7 @@ func TestIsHoliday(t *testing.T) {
 func TestStringToDate(t *testing.T) {
 	//ensures the conversion is using brazilian format
 	strDate := "12/01/2001"
-	d, _ := stringToDate(strDate)
+	d, _ := StringToDate(strDate)
 	if d.Month() == time.December {
 		t.Errorf("Exepct January, found December. Original string date: %v. Converted: %v", strDate, d)
 	}
@@ -31,7 +31,7 @@ func TestStringToDate(t *testing.T) {
 func TestDateToString(t *testing.T) {
 	//ensures the conversion is using brazilian format
 	d := time.Date(2001, time.December, 1, 0, 0, 0, 0, time.UTC)
-	if dateToString(d) == "12/01/2001" {
+	if DateToString(d) == "12/01/2001" {
 		t.Errorf("Error converting date to brazilian format. Expect 01/12/2001, found 12/01/2001")
 	}
 }

@@ -8,16 +8,16 @@ import (
 
 // method for checking if a specific date is a holiday
 func IsHoliday(date time.Time) bool {
-	return holidays[dateToString(date)]
+	return holidays[DateToString(date)]
 }
 
 // method for simple conversion from time to brazilian date format
-func dateToString(d time.Time) string {
+func DateToString(d time.Time) string {
 	return d.Format("02/01/2006")
 }
 
 // function to convert a string date in brazilian tipical format (DD/MM/YYYY) to a time.Time var
-func stringToDate(ds string) (time.Time, error) {
+func StringToDate(ds string) (time.Time, error) {
 	if ds != "" {
 		parts := strings.Split(ds, "/")
 		day, err := strconv.Atoi(parts[0])
@@ -52,7 +52,7 @@ func NetWorkDays(id, fd time.Time) (int, error) {
 
 // method to identify the first work day from the date, including itself
 func nextWorkDay(d string) (string, error) {
-	date, err := stringToDate(d)
+	date, err := StringToDate(d)
 	if err != nil {
 		return "", err
 	}
@@ -61,7 +61,7 @@ func nextWorkDay(d string) (string, error) {
 
 	for ; !date.After(fd); date = date.AddDate(0, 0, 1) {
 		if !IsHoliday(date) && date.Weekday() != time.Saturday && date.Weekday() != time.Sunday {
-			return dateToString(date), nil
+			return DateToString(date), nil
 		}
 	}
 	return "", nil
