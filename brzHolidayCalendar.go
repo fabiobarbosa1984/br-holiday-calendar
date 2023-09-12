@@ -51,17 +51,13 @@ func NetWorkDays(id, fd time.Time) (int, error) {
 }
 
 // method to identify the first work day from the date, including itself
-func nextWorkDay(d string) (string, error) {
-	date, err := StringToDate(d)
-	if err != nil {
-		return "", err
-	}
+func nextWorkDay(d time.Time) (string, error) {
 
-	fd := date.AddDate(0, 0, 6)
+	fd := d.AddDate(0, 0, 6)
 
-	for ; !date.After(fd); date = date.AddDate(0, 0, 1) {
-		if !IsHoliday(date) && date.Weekday() != time.Saturday && date.Weekday() != time.Sunday {
-			return DateToString(date), nil
+	for ; !d.After(fd); d = d.AddDate(0, 0, 1) {
+		if !IsHoliday(d) && d.Weekday() != time.Saturday && d.Weekday() != time.Sunday {
+			return DateToString(d), nil
 		}
 	}
 	return "", nil

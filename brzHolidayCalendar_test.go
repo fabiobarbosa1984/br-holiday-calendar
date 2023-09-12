@@ -48,13 +48,13 @@ func TestNetWorkDays(t *testing.T) {
 
 func TestNextWorkDAy(t *testing.T) {
 	//ensures proper next day identification
-	wd := "11/09/2023"
+	wd, _ := StringToDate("11/09/2023")
 	twd, _ := nextWorkDay(wd)
-	satd := "09/09/2023"
+	satd, _ := StringToDate("09/09/2023")
 	tsatd, _ := nextWorkDay(satd)
-	sund := "10/09/2023"
+	sund, _ := StringToDate("10/09/2023")
 	tsund, _ := nextWorkDay(sund)
-	hd := "07/09/2023"
+	hd, _ := StringToDate("07/09/2023")
 	thd, _ := nextWorkDay(hd)
 
 	//common workday test
