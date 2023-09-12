@@ -1,5 +1,5 @@
 # brzHolidayCalendar
-Go Module with help methods for computing working days considering Brazilian financial holydays
+Go Module with help methods for computing working days considering Brazilian financial holidays
 
 # Instalation
 Just add the github.com/fabiobarbosa1984/brzHolidayCalendar reference on your go.mod and you are good to go. 
