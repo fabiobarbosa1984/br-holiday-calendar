@@ -27,4 +27,4 @@ Return the informed date as a time.Time object. Expects the string date in Brazi
 Convert a time.Time date to string using Brazilian format (DD/MM/YYYY)
 
 # Contact
-If you need any help to use this module in your project, feel free to contact me by my e-mail fabio.barbosa@gmail.com or using my linkedin 
+If you need any help to use this module in your project, feel free to contact me by my e-mail fabio.barbosa@gmail.com or using my linkedin https://www.linkedin.com/in/fabio-dos-santos-barbosa-affc/
